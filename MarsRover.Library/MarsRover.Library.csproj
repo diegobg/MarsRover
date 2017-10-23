@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE92C50C-4FBB-440A-9CF2-9AAB52ADE742}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{144658BC-55E9-454F-968A-9775294DF8A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MarsRover</RootNamespace>
-    <AssemblyName>MarsRover</AssemblyName>
+    <AssemblyName>MarsRover.Library</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,18 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FlashMessage.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Commands\CommandParser.cs" />
+    <Compile Include="Commands\MoveCommand.cs" />
+    <Compile Include="Commands\IMoveCommandReceiver.cs" />
+    <Compile Include="Commands\ITurnCommandReceiver.cs" />
+    <Compile Include="Commands\RoverCommand.cs" />
+    <Compile Include="Commands\TurnCommand.cs" />
+    <Compile Include="Exceptions\CommandQueueDepthExceeded.cs" />
+    <Compile Include="Exceptions\PositionOutOfBoundsException.cs" />
+    <Compile Include="Position.cs" />
+    <Compile Include="TurnDirection.cs" />
+    <Compile Include="Rover.cs" />
+    <Compile Include="Orientation.cs" />
+    <Compile Include="RoverGridPositionAndHeading.cs" />
+    <Compile Include="SurfaceArea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MarsRover.Library\MarsRover.Library.csproj">
-      <Project>{144658bc-55e9-454f-968a-9775294df8a7}</Project>
-      <Name>MarsRover.Library</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
